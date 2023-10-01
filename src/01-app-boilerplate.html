@@ -66,12 +66,15 @@
     // Update loop
     requestAnimationFrame(drawFrame)
 
+    let i=0;
     function drawFrame (ts) {
-      ts /= 1000
+      ts /= 100;
       
-      ctx.moveTo(100, 100)
-      ctx.lineTo(200, 200)
+      ctx.moveTo(100+i, 100+2*i)
+      ctx.lineTo(200+3*i, 200+4*i)
       ctx.stroke()
+
+      i+=10;
 
       requestAnimationFrame(drawFrame)
     }
