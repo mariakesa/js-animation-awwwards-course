@@ -10,14 +10,13 @@
 	onMount(()=>
 		{
 			const ctx = canvas.getContext('2d');
-			//let frame = requestAnimationFrame(loop);
+			let frame = requestAnimationFrame(loop);
 
 			function loop(t){
 				frame = requestAnimationFrame(loop);
 				ctx.fillRect(10,10, 20, 20);
 			};
 		})
-	``
 </script>
 
 
@@ -25,8 +24,5 @@
 	canvas {
 		width: 100%;
 		height: 100%;
-		background-color: #666;
-		-webkit-mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
-		mask: url(/svelte-logo-mask.svg) 50% 50% no-repeat;
 	}
 </style>
