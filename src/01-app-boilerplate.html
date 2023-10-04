@@ -66,6 +66,15 @@
     // Update loop
     requestAnimationFrame(drawFrame)
 
+    const video = document.createElement('video')
+
+    video.onloadeddata = function () {
+        video.play()
+        video.volume = 0.1
+        requestAnimationFrame(drawFrame)
+      }
+    video.src = '/assets/sample-video.mp4'
+
     let i=0;
     function drawFrame (ts) {
       ts /= 100;
@@ -77,6 +86,8 @@
       ctx.fillRect(10,10, 20, 20);
 
       i+=10;
+
+      ctx.drawImage(video, 250, 280, video.videoWidth * 0.5, video.videoHeight * 0.5)
 
       requestAnimationFrame(drawFrame)
     }
