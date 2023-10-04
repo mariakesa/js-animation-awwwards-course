@@ -69,8 +69,8 @@
 
     image.onload = function () {
       video.onloadeddata = function () {
+        video.volume = 0.0
         video.play()
-        video.volume = 0.1
         requestAnimationFrame(drawFrame)
       }
       video.src = '/assets/sample-video.mp4'
@@ -163,6 +163,8 @@
 
       // Video
       ctx.drawImage(video, 250, 280, video.videoWidth * 0.5, video.videoHeight * 0.5)
+
+      console.log(video.videoWidth,video.videoHeight)
 
       requestAnimationFrame(drawFrame)
     }
