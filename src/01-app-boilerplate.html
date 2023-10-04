@@ -66,15 +66,18 @@
     // Update loop
     requestAnimationFrame(drawFrame)
 
+    const image = new Image()
     const video = document.createElement('video')
 
-    video.onloadeddata = function () {
+    image.onload = function () {
+      video.onloadeddata = function () {
         video.play()
         video.volume = 0.1
         requestAnimationFrame(drawFrame)
       }
-    video.src = '/assets/sample-video.mp4'
-
+      video.src = '/assets/sample-video.mp4'
+    }
+    image.src = '/assets/sample-image.jpeg'
     let i=0;
     function drawFrame (ts) {
       ts /= 100;
@@ -86,6 +89,8 @@
       ctx.fillRect(10,10, 20, 20);
 
       i+=10;
+
+      ctx.drawImage(image, 250, 170, image.naturalWidth * 0.25, image.naturalHeight * 0.25)
 
       ctx.drawImage(video, 250, 280, video.videoWidth * 0.5, video.videoHeight * 0.5)
 
